@@ -14,12 +14,22 @@ const Search = () => {
     }
 
    }
+
+   const handleKeypress = e => {
+    e.preventDefault();
+    //it triggers by pressing the enter key
+    alert("hello");
+  if (e.keyCode === 13) {
+    handleabeelo();
+  }
+};
   return (
     // <div className=" bg-gray-50">
    
     <section class=" dark:bg-gray-950  dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')] py-36 h-screen">
    <div class="flex flex-col items-center  px-6 py-8 mx-auto h-100 ">
-   <img class="h-72 mb-12  mr-2" src={logo} alt="logo" />
+   <img class="h-72 mb-6  mr-2" src={logo} alt="logo" />
+   <h1 class="mb-12 text-xl font-bold text-center text-gray-900 dark:text-white "> <span class="text-red-600"> عبيلـــــــــــــــــــــــوا</span>  ريكويـــــــــــــــــــست<span class="text-red-600"> يديلــــــــــــــــــــــك </span>ريسبونـــــــــــــــــــــــــس </h1>
    <div>
          {/* <input style={{width: "700px"}} type="text" name="query" id="query" class="w-ful bg-gray-50 border-2  border-gray-300 text-gray-900 sm:text-md rounded-2xl focus:ring-none focus:ring-0 focus:ring-offset-0  p-2.5  " placeholder="Enter you query" required={true} /> */}
      </div>
@@ -33,7 +43,8 @@ const Search = () => {
 
     </div>
 </form>
-     <button onClick={handleabeelo} type="submit" class="w-32 mt-8  text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-semibold rounded-lg text-sm px-5 py-2.5 text-center ">ABEELO</button>
+     <button           onKeyPress={handleKeypress}
+ onClick={handleabeelo} type="submit" class="w-32 mt-8  text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-semibold rounded-lg text-sm px-5 py-2.5 text-center ">ABEELO</button>
  
  
    </div>

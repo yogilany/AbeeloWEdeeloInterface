@@ -46,7 +46,9 @@ const Result = ({query, link, title, snippet}) => {
   <div class="mt-2 mb-4 text-md text-gray-50 ">
   {words.map((part, index) => (
         // Wrap the matched words in <strong> tags
-      part === query ? <strong>{part }{" "}</strong> : part + " "
+        // check if the part is a subset of the query
+          
+        part.toLowerCase().includes(query.toLowerCase()) ? <span className=' font-semibold text-red-400'>{part }{" "}</span> : part + " "
        
       ))}
 
