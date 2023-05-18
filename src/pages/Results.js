@@ -6,26 +6,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-const resultss = [
-  {
-    id: 1,
-    title: "Power (physics) - Wikipedia",
-    description: "In physics, power is the amount of energy transferred or converted per unit time. In the International System of Units, the unit of power is the watt, equal to one joule per second. In older works, power is sometimes called activity.",
-    url: "https://en.wikipedia.org/wiki/Power_(physics)",
-  },
-  {
-    id: 12,
-    title: "Watt - Wikipedia",
-    description: "The watt (symbol: W) is the unit of power or radiant flux in the International System of Units (SI), equal to 1 joule per second or 1 kg⋅m2⋅s−3.[1][2][3] It is used to quantify the rate of energy transfer.",
-    url: "https://en.wikipedia.org/wiki/Watt",
-  },
-  {
-    id: 13,
-    title: "Six-Day War - Wikipedia",
-    description: "splashdown; and the cylindrical service module which provided propulsion, electrical power and storage for various consumables required during a mission. An umbilical connection transferred power and consumables between the two modules.",
-    url: "https://en.wikipedia.org/wiki/Six-Day_War",
-  },
-]
+
 
 const Results = () => {
   const [results, setResults] = React.useState([]);
@@ -138,13 +119,14 @@ const Results = () => {
           About {count ? count : null} results ({time ? time : null}){" "}
         </h2>
         <div className=" px-48  mb-12">
-          {!loading && resultss ? resultss.length === 0 ? <div><h1 class=" text-white font-light text-3xl">Your search - <span class="font-bold "> {query}</span> - did not match any documents.</h1><p class="text-white text-lg mt-12"><span class="text-2xl font-bold mb-4">Suggestions:</span>
+          {!loading && results ? results.length === 0 ? <div><h1 class=" text-white font-light text-3xl">Your search - <span class="font-bold "> {query}</span> - did not match any documents.</h1><p class="text-white text-lg mt-12"><span class="text-2xl font-bold mb-4">Suggestions:</span>
 
 <ul class="mt-4"><li>Make sure that all words are spelled correctly.</li>
 <li>Try different keywords.</li>
 <li>Try more general keywords.</li></ul></p></div> : 
           <>
-          {resultss
+          {results
+            .slice(start, end)
               .map((result, index) => (
                  <Result key={index} link={result.url} query={query} title={result.title} snippet={result.description} />
            ) )}
