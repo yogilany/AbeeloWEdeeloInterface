@@ -43,12 +43,12 @@ const Result = ({query, link, title, snippet}) => {
 
     {/* <a class="text-xl font-normal text-gray-800">Computer vision</a> */}
   </div>
-  <div class="mt-2 mb-4 text-md text-gray-50 ">
+  <div class="mt-2 mb-4 text-md text-gray-50 font-light ">
   {words.map((part, index) => (
         // Wrap the matched words in <strong> tags
         // check if the part is a subset of the query
           
-        part.toLowerCase().includes(query.toLowerCase()) ? <span className=' font-semibold text-red-400'>{part }{" "}</span> : part + " "
+        part.toLowerCase().includes(query.toLowerCase()) ? <span className=' font-bold '>{part }{" "}</span> : part + " "
        
       ))}
 
